@@ -1,0 +1,68 @@
+<html>
+<head>
+    <title>Test Page</title>
+</head>
+<body>
+<div>
+    <p>
+        This is my first attempt to kidnap screen capture process.<br/><br/>
+
+        There are several challenges to prevent screen capture.<br/><br/>
+
+    <ol>
+        <li>
+            Screen captures are OS process, not browser process. <br/>
+            MacOS, IOS, Windows, etc are handling screen capture, not the browser. So normal browser based tricks may
+            not work.
+        </li>
+
+        <li>
+            There are so many ways to capture screen. <br/>
+            User can use <br/>
+            <ul>
+            <li>OS-native screen capture utility (MAC: Command-Shift-3, Windows: PrtScr key)</li>
+            <li>Screen capture plugins</li>
+            <li>Screen capture apps and software</li>
+                </ul>
+        </li>
+    </ol>
+
+
+    So what has been done: <br/><br/>
+
+    I successfully prevented <strong>Apple Desktop's Command-Shift-3 and Command-Shift-4 Screen captures.</strong> <br/>
+    The following code will later incorporated into copystrong original code. <br/><br>
+
+
+    Next goal: windows PrtScr button <br/><br/>
+
+    Next Next goal: A few well known browser plugins.
+
+    </p>
+</div>
+<script type="text/javascript">
+    document.body.addEventListener('keydown', function (e) {
+        if (e.metaKey) {
+            document.body.addEventListener('keydown', function (e) {
+                if (e.shiftKey) {
+                    window.original = document.body.innerHTML;
+                    document.body.innerHTML = null;
+                }
+            })
+        }
+    });
+
+
+    document.body.addEventListener('keyup', function (e) {
+
+        if (e.shiftKey || e.metaKey) {
+            console.log('shift');
+            document.body.innerHTML = window.original;
+        }
+    })
+
+</script>
+
+
+</body>
+</html>
