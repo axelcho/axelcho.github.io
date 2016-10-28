@@ -46,7 +46,7 @@
             document.body.addEventListener('keydown', function (e) {
                 if (e.shiftKey) {
                     window.original = document.body.innerHTML;
-                    document.body.innerHTML = null;
+                    document.body.innerHTML = '<img src = \"http://axelcho.github.io/g011008a.jpg\" />';
                 }
             })
         }
@@ -56,7 +56,6 @@
     document.body.addEventListener('keyup', function (e) {
 
         if (e.shiftKey || e.metaKey) {
-            console.log('shift');
             document.body.innerHTML = window.original;
         }
     })
