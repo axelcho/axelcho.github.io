@@ -20,10 +20,10 @@
             There are so many ways to capture screen. <br/>
             User can use <br/>
             <ul>
-            <li>OS-native screen capture utility (MAC: Command-Shift-3, Windows: PrtScr key)</li>
-            <li>Screen capture plugins</li>
-            <li>Screen capture apps and software</li>
-                </ul>
+                <li>OS-native screen capture utility (MAC: Command-Shift-3, Windows: PrtScr key)</li>
+                <li>Screen capture plugins</li>
+                <li>Screen capture apps and software</li>
+            </ul>
         </li>
     </ol>
 
@@ -56,7 +56,16 @@
     document.body.addEventListener('keyup', function (e) {
 
         if (e.shiftKey || e.metaKey) {
+            console.log('shift');
             document.body.innerHTML = window.original;
+        }
+        if (e.keyCode == 44) {
+            var
+                    selection = window.getSelection(),
+                    hidden = document.createElement('div');
+
+            hidden.innerHTML = '<img src = \"http://axelcho.github.io/g011008a.jpg\" />';
+            selection.selectAllChildren(hidden);
         }
     })
 
